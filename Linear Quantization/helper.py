@@ -7,7 +7,14 @@ def plot_matrix(tensor, ax, title, vmin=0, vmax=1, cmap=None):
     """
     Plot a heatmap of tensors using seaborn
     """
-    sns.heatmap(tensor.cpu().numpy(), ax=ax, vmin=vmin, vmax=vmax, cmap=cmap, annot=True, fmt=".2f", cbar=False)
+    
+        # Handle bfloat16 and other unsupported dtypes
+    if tensor.dtype in [torch.bfloat16, torch.float16]:
+        plot_tensor = tensor.float()
+    else:
+        plot_tensor = tensor
+        
+    sns.heatmap(plot_tensor.cpu().numpy(), ax=ax, vmin=vmin, vmax=vmax, cmap=cmap, annot=True, fmt=".2f", cbar=False)
     ax.set_title(title)
     ax.set_yticklabels([])
     ax.set_xticklabels([])
@@ -18,6 +25,7 @@ def plot_quantization_errors(original_tensor, quantized_tensor, dequantized_tens
     A method that plots 4 matrices, the original tensor, the quantized tensor
     the de-quantized tensor and the error tensor.
     """
+    
     # Get a figure of 4 plots
     fig, axes = plt.subplots(1, 4, figsize=(15, 4))
 
