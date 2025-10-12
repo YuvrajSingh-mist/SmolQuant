@@ -53,8 +53,8 @@ These models are quantized versions of Facebook's OPT (Open Pre-trained Transfor
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Load quantized model
-model = AutoModelForCausalLM.from_pretrained("YuvrajSingh9886/facebook-opt-350m-8bit-llm.int8-threshold-8")
-tokenizer = AutoTokenizer.from_pretrained("YuvrajSingh9886/facebook-opt-350m-8bit-llm.int8-threshold-8")
+model = AutoModelForCausalLM.from_pretrained("YuvrajSingh9886/facebook-opt-350m-8bit-bnb")
+tokenizer = AutoTokenizer.from_pretrained("YuvrajSingh9886/facebook-opt-350m-8bit-bnb")
 
 # Generate text
 inputs = tokenizer("Hello, my name is", return_tensors="pt")
@@ -123,8 +123,8 @@ The models are quantized versions of pre-trained OPT-350M models. No additional 
 
 #### Speeds, Sizes, Times
 
-- **Original Model Size:** ~1.4GB (FP16)
-- **Quantized Model Size:** ~700MB (8-bit weights + FP16 activations)
+- **Original Model Size:** ~0.6GB (FP16)
+- **Quantized Model Size:** ~0.3GB (8-bit weights + FP16 activations)
 - **Memory Reduction:** ~50%
 - **Inference Speed:** Comparable to FP16 with reduced memory usage
 
@@ -141,14 +141,16 @@ The models are quantized versions of pre-trained OPT-350M models. No additional 
 - **Perplexity:** Language modeling perplexity
 - **Memory Usage:** Peak memory consumption during inference
 
+*Note: Performance numbers are approximate and may vary based on evaluation setup*
+
 ### Results
 
 | Model Variant | Memory (GB) | HellaSwag Acc | Relative Perf |
 |---------------|-------------|---------------|---------------|
-| OPT-350M (FP16) | 1.4 | Baseline | 100% |
-| LLM.int8 (threshold=6.0) | 0.7 | -0.5% | 99.5% |
-| LLM.int8 (threshold=8.0) | 0.7 | -0.3% | 99.7% |
-| LLM.int8 (threshold=5.0, lm_head=FP16) | 0.7 | -0.2% | 99.8% |
+| OPT-350M (FP16) | 0.6 | Baseline | 100% |
+| LLM.int8 (threshold=6.0) | 0.3 | -0.5% | 99.5% |
+| LLM.int8 (threshold=8.0) | 0.3 | -0.3% | 99.7% |
+| LLM.int8 (threshold=5.0, lm_head=FP16) | 0.3 | -0.2% | 99.8% |
 
 *Note: Performance numbers are approximate and may vary based on evaluation setup*
 
