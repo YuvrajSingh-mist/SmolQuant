@@ -174,6 +174,7 @@ The models maintain the original OPT architecture:
 - **Name:** YuvrajSingh-mist
 - **Email:** [Contact information]
 - **GitHub:** https://github.com/YuvrajSingh-mist
+- **Wandb:** https://wandb.ai/rentio/SmolQuant/reports/OPT-350M-Quantization-using-LLM-int8---VmlldzoxNDY5ODE2Ng
 
 ## Citation
 
