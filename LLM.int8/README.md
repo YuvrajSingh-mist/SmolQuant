@@ -179,15 +179,7 @@ The models maintain the original OPT architecture:
 ## Citation
 
 If you use these quantized models in your work, please cite:
-
 ```bibtex
-@software{smolquant_llm_int8_2024,
-  title={LLM.int8 Quantized OPT Models},
-  author={YuvrajSingh-mist},
-  year={2024},
-  url={https://github.com/YuvrajSingh-mist/SmolQuant}
-}
-
 @inproceedings{zhang2022opt,
   title={Opt: Open pre-trained transformer language models},
   author={Zhang, Susan and Roller, Stephen and Goyal, Naman and Artetxe, Mikel and Chen, Moya and Chen, Shuohui and Dewan, Christopher and Diab, Mona and Li, Xian and Lin, Xi Victoria and others},
@@ -208,34 +200,6 @@ If you use these quantized models in your work, please cite:
 - **Model Card Author:** YuvrajSingh-mist
 - **Model Developer:** YuvrajSingh-mist
 - **Original OPT Developers:** Meta AI (Facebook)
-
----
-
-## Additional Resources
-
-### Analysis Scripts
-
-The repository includes analysis scripts for:
-- **Weight Distribution Analysis:** `analyze_weights.py` - Visualizes weight distributions across layers
-- **Activation Analysis:** `analyze_activations.py` - Shows activation patterns during inference
-- **Memory Profiling:** Memory usage comparison between FP16 and INT8 models
-
-### Usage Examples
-
-```bash
-# Evaluate quantized model
-lm_eval --model hf \
-    --model_args pretrained=YuvrajSingh9886/facebook-opt-350m-8bit-llm.int8-threshold-8 \
-    --tasks hellaswag \
-    --device cuda:0 \
-    --batch_size auto
-```
-
-### Related Models
-
-- **Original FP16 Model:** `facebook/opt-350m`
-- **Other Quantized Variants:** Available with different threshold settings
-- **SmolQuant Custom Quantization:** Alternative quantization implementation in the main repository
 
 ---
 
