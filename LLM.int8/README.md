@@ -143,17 +143,6 @@ The models are quantized versions of pre-trained OPT-350M models. No additional 
 
 *Note: Performance numbers are approximate and may vary based on evaluation setup*
 
-### Results
-
-| Model Variant | Memory (GB) | HellaSwag Acc | Relative Perf |
-|---------------|-------------|---------------|---------------|
-| OPT-350M (FP16) | 0.6 | Baseline | 100% |
-| LLM.int8 (threshold=6.0) | 0.3 | -0.5% | 99.5% |
-| LLM.int8 (threshold=8.0) | 0.3 | -0.3% | 99.7% |
-| LLM.int8 (threshold=5.0, lm_head=FP16) | 0.3 | -0.2% | 99.8% |
-
-*Note: Performance numbers are approximate and may vary based on evaluation setup*
-
 ## Technical Specifications
 
 ### Model Architecture and Objective
