@@ -170,28 +170,6 @@ exclude_layers = ["classifier", "lm_head", "embed_tokens"]
 replace_linear_with_target_and_quantize(model, W8A16LinearLayer, exclude_layers)
 ```
 
-## Troubleshooting
-
-### Common Issues
-
-1. **CUDA Device Errors**: Ensure all tensors are on the same device
-   ```python
-   # Model automatically handles device placement
-   model = model.to('cuda')  # Move before quantization
-   ```
-
-2. **High Quantization Error**: Use smaller learning rates or different initialization
-   ```python
-   # Initialize with smaller weights
-   weights = torch.randn(size) * 0.1
-   ```
-
-3. **Memory Issues**: Quantize in smaller batches or use CPU offloading
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 ### Development Setup
 
 ```bash
@@ -207,18 +185,6 @@ python -m pytest tests/
 # Or run specific notebooks
 jupyter notebook "Linear Quantization/8_bit_quant.ipynb"
 ```
-
-## Roadmap
-
-- [ ] **A16W4 Quantization**: 4-bit weight quantization
-- [ ] **Dynamic Quantization**: Runtime quantization for activations  
-- [ ] **GPTQ Integration**: Post-training quantization methods
-- [ ] **Optimization**: Faster CUDA kernels
-- [ ] **More Architectures**: CNN, Attention layer support
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
