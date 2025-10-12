@@ -184,6 +184,16 @@ If you use these quantized models in your work, please cite:
   journal={arXiv preprint arXiv:2208.07339},
   year={2022}
 }
+
+
+@software{smolquant2024,
+  title={SmolQuant: Lightweight Neural Network Quantization},
+  author={YuvrajSingh-mist},
+  year={2024},
+  url={https://github.com/YuvrajSingh-mist/SmolQuant}
+}
+
+
 ```
 
 ## Model Card Authors
